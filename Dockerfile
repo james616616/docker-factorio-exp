@@ -22,4 +22,6 @@ RUN  wget -q -O - https://www.factorio.com/download-headless/experimental | grep
 
 ADD  init.sh /opt/factorio/
 
+EXPOSE 34198/udp
+
 CMD ["./init.sh"]
