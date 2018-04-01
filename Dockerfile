@@ -16,8 +16,9 @@ ENV SAVEFILE /opt/factorio/saves/factorio_save.zip
 ENV SETTING /opt/factorio/saves/server-settings.json
 WORKDIR /opt/factorio
 
-RUN  wget -O -factorio.tar.gz https://www.factorio.com/get-download/latest/headless/linux64 \
-  && tar -xpvf /tmp/factorio.tar.gz -C /opt \
+RUN wget -O /tmp/factorio-exp.tar.gz https://www.factorio.com/get-download/latest/headless/linux64
+  && tar -xpvf /tmp/factorio.tar.gz \
+  && mv -f /tmp/factorio /opt/factorio \
   && rm -rf /tmp/factorio.tar.gz
 
 ADD  init.sh /opt/factorio/
